@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cek Pulsa Telkomsel</title>
+<style>
+body{
+    font-family: Arial;
+    background: linear-gradient(135deg,#c31432,#240b36);
+    color:white;
+    text-align:center;
+    padding-top:80px;
+}
+.box{
+    background:#1c1c1c;
+    width:400px;
+    margin:auto;
+    padding:25px;
+    border-radius:15px;
+}
+input{
+    width:85%;
+    padding:10px;
+    margin:10px;
+    border:none;
+    border-radius:5px;
+}
+button{
+    padding:10px 20px;
+    background:red;
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>📱 Beli Pulsa Telkomsel</h2>
+
+<input type="text" id="nomor" placeholder="Masukkan Nomor 08xxxx">
+<br>
+<button onclick="cek()">Lanjut</button>
+
+</div>
+
+<script>
+function cek(){
+    let nomor = document.getElementById("nomor").value.trim();
+
+    if(nomor === ""){
+        alert("Masukkan nomor dulu!");
+        return;
+    }
+
+    // Optional: ubah 08 jadi 08
+    if(nomor.startsWith("0")){
+        nomor = "08" + nomor.substring(1);
+    }
+
+    let url = "https://www.telkomsel.com/shops/digital-product/credit?msisdn=" 
+    + nomor +
+    "&roaming=&service=SIMPATI&sort=lowest-price&minPrice=&maxPrice=&quota=";
+
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>
